@@ -1,4 +1,22 @@
-react-force-graph
+# luhui react-force-graph 鲁虺反应力图谱
+ 
+ 
+ http://react-force-graph.luhui.net
+ 
+
+http://react-force-graph.netlify.app
+
+
+
+# Deploy status badge 部署状态徽章
+This image automatically updates to reflect the current state of your latest production deploy. 此映像会自动更新以反映最新生产部署的当前状态。
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5dd8c516-f425-4e58-ae40-3c3643318854/deploy-status)](https://app.netlify.com/sites/react-force-graph/deploys)
+
+
+react-force-graph 反应力图谱
+
 =================
 
 [![NPM package][npm-img]][npm-url]
