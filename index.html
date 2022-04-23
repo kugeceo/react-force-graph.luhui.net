@@ -1,0 +1,1465 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>react-force-graph | React component for 2D, 3D, VR and AR force directed graphs</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="react-force-graph" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="React component for 2D, 3D, VR and AR force directed graphs" />
+<meta property="og:description" content="React component for 2D, 3D, VR and AR force directed graphs" />
+<link rel="canonical" href="https://vasturiano.github.io/react-force-graph/" />
+<meta property="og:url" content="https://vasturiano.github.io/react-force-graph/" />
+<meta property="og:site_name" content="react-force-graph" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="react-force-graph" />
+<script type="application/ld+json">
+{"description":"React component for 2D, 3D, VR and AR force directed graphs","url":"https://vasturiano.github.io/react-force-graph/","@type":"WebSite","headline":"react-force-graph","name":"react-force-graph","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b26a452ffaa28cd856158f427cadaa2b2b8fe306">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">react-force-graph</h1>
+      <h2 class="project-tagline">React component for 2D, 3D, VR and AR force directed graphs</h2>
+      
+        <a href="http://github.com/kugeceo/react-force-graph.luhui.net" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="react-force-graph">react-force-graph</h1>
+
+<p><a href="https://npmjs.org/package/react-force-graph"><img src="https://img.shields.io/npm/v/react-force-graph" alt="NPM package" /></a>
+<a href="https://www.npmtrends.com/react-force-graph"><img src="https://img.shields.io/npm/dt/react-force-graph" alt="NPM Downloads" /></a></p>
+
+<p>React bindings for the <strong>force-graph</strong> <a href="/example/forcegraph-dependencies">suite</a> of components: <a href="https://github.com/vasturiano/force-graph">force-graph</a> (2D HTML Canvas), <a href="https://github.com/vasturiano/3d-force-graph">3d-force-graph</a> (ThreeJS/WebGL), <a href="https://github.com/vasturiano/3d-force-graph-vr">3d-force-graph-vr</a> (A-Frame) and <a href="https://github.com/vasturiano/3d-force-graph-ar">3d-force-graph-ar</a> (AR.js).</p>
+
+<p align="center">
+  <a href="/example/large-graph/"><img width="80%" src="http://gist.github.com/vasturiano/02affe306ce445e423f992faeea13521/raw/preview.png" /></a>
+</p>
+
+<p>This module exports 4 React components with identical interfaces: <code class="language-plaintext highlighter-rouge">ForceGraph2D</code>, <code class="language-plaintext highlighter-rouge">ForceGraph3D</code>, <code class="language-plaintext highlighter-rouge">ForceGraphVR</code> and <code class="language-plaintext highlighter-rouge">ForceGraphAR</code>. Each can be used to represent a graph data structure in a 2 or 3-dimensional space using a force-directed iterative layout.</p>
+
+<p>For dependency convenience, all of the components are also available as stand-alone packages: <code class="language-plaintext highlighter-rouge">react-force-graph-2d</code>, <code class="language-plaintext highlighter-rouge">react-force-graph-3d</code>, <code class="language-plaintext highlighter-rouge">react-force-graph-vr</code> and <code class="language-plaintext highlighter-rouge">react-force-graph-ar</code>.</p>
+
+<p>Uses canvas/WebGL for rendering and <a href="https://github.com/vasturiano/d3-force-3d">d3-force-3d</a> for the underlying physics engine. 
+Supports zooming/panning, node dragging and node/link hover/click interactions.</p>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><a href="/example/basic/">Basic</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/basic/index.html">source</a>)</li>
+  <li><a href="/example/directional-links-arrows/">Directional arrows</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/directional-links-arrows/index.html">source</a>)</li>
+  <li><a href="/example/directional-links-particles/">Directional moving particles</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/directional-links-particles/index.html">source</a>)</li>
+  <li><a href="/example/auto-colored/">Auto-colored nodes/links</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/auto-colored/index.html">source</a>)</li>
+  <li><a href="/example/ar-graph/index.html">AR graph</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/ar-graph/index.html">source</a>)</li>
+  <li><a href="/example/text-nodes/index-2d.html">2D Text nodes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/text-nodes/index-2d.html">source</a>)</li>
+  <li><a href="/example/text-nodes/index-3d.html">3D Text nodes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/text-nodes/index-3d.html">source</a>)</li>
+  <li><a href="/example/img-nodes/">Image nodes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/img-nodes/index.html">source</a>)</li>
+  <li><a href="/example/html-nodes/">HTML in nodes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/html-nodes/index.html">source</a>)</li>
+  <li><a href="/example/custom-node-shape/index-canvas.html">Custom 2D node shapes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/custom-node-shape/index-canvas.html">source</a>)</li>
+  <li><a href="/example/custom-node-shape/index-three.html">Custom 3D/VR node geometries</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/custom-node-shape/index-three.html">source</a>)</li>
+  <li><a href="/example/curved-links/">Curved lines and self links</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/curved-links/index.html">source</a>)</li>
+  <li><a href="/example/text-links/index-3d.html">Text in links</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/text-links/index-3d.html">source</a>)</li>
+  <li><a href="/example/highlight/">Highlight nodes/links</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/highlight/index.html">source</a>)</li>
+  <li><a href="/example/large-graph/">Larger graph</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/large-graph/index.html">source</a>)</li>
+  <li><a href="/example/dynamic/">Dynamic data changes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/dynamic/index.html">source</a>)</li>
+  <li><a href="/example/click-to-focus/">Click to focus on node</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/click-to-focus/index.html">source</a>)</li>
+  <li><a href="/example/expandable-nodes/">Click to expand/collapse nodes</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/expandable-nodes/index.html">source</a>)</li>
+  <li><a href="/example/fix-dragged-nodes/">Fix nodes after dragging</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/fix-dragged-nodes/index.html">source</a>)</li>
+  <li><a href="/example/fit-to-canvas/">Fit graph to canvas</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/fit-to-canvas/index.html">source</a>)</li>
+  <li><a href="/example/camera-auto-orbit/">Camera automatic orbitting</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/camera-auto-orbit/index.html">source</a>)</li>
+  <li><a href="/example/collision-detection/">Node collision detection</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/collision-detection/index.html">source</a>)</li>
+  <li><a href="/example/emit-particles/">Emit link particles on demand</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/emit-particles/index.html">source</a>)</li>
+  <li><a href="/example/tree/">Force-directed tree (DAG mode)</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/tree/index.html">source</a>)</li>
+  <li><a href="/example/bloom-effect/">Bloom Post-Processing Effect</a> (<a href="https://github.com/kugeceo/react-force-graph.luhui.net/blob/master/example/bloom-effect/index.html">source</a>)</li>
+</ul>
+
+<h2 id="quick-start">Quick start</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">ForceGraph2D</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-force-graph-2d</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ForceGraph3D</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-force-graph-3d</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ForceGraphVR</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-force-graph-vr</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ForceGraphAR</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-force-graph-ar</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ForceGraph2D</span><span class="p">,</span> <span class="nx">ForceGraph3D</span><span class="p">,</span> <span class="nx">ForceGraphVR</span><span class="p">,</span> <span class="nx">ForceGraphAR</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-force-graph</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>or using a script tag</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//unpkg.com/react-force-graph-2d"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//unpkg.com/react-force-graph-3d"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//unpkg.com/react-force-graph-vr"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//unpkg.com/react-force-graph-ar"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>then</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">ForceGraph3D</span>
+  <span class="na">graphData</span><span class="p">=</span><span class="si">{</span><span class="nx">myData</span><span class="si">}</span>
+<span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<h2 id="api-reference">API reference</h2>
+
+<p>Note that not all props listed below apply to all 4 components. The last 4 columns in these tables indicate the specific component availability of each prop/method.</p>
+
+<h3 id="data-input">Data input</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>graphData</b></td>
+      <td style="text-align: center"><i>object</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{ nodes: [], links: [] }</code></td>
+      <td>Graph data structure (see below for syntax details). Can also be used to apply incremental updates.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeId</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">id</code></td>
+      <td>Node object accessor attribute for unique node id (used in link objects source/target).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkSource</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">source</code></td>
+      <td>Link object accessor attribute referring to id of source node.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkTarget</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">target</code></td>
+      <td>Link object accessor attribute referring to id of target node.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="container-layout">Container layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>width</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center"><em>&lt;window width&gt;</em></td>
+      <td>Canvas width, in px.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>height</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center"><em>&lt;window height&gt;</em></td>
+      <td>Canvas height, in px.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>backgroundColor</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center">(2D - <i>light</i> / 3D - <i>dark</i>)</td>
+      <td>Chart background color.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>showNavInfo</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to show the navigation controls footer info.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>yOffset</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">1.5</td>
+      <td>In AR mode, defines the offset distance above the marker where to place the center coordinates <code class="language-plaintext highlighter-rouge">&lt;0,0,0&gt;</code> of the force directed graph. Measured in terms of marker width units.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>glScale</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">200</td>
+      <td>In AR mode, defines the translation scale between real world distances and WebGL units, determining the overall size of the graph. Defined in terms of how many GL units fit in a full marker width.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>markerAttrs</b></td>
+      <td style="text-align: center"><i>object</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{ preset: 'hiro' }</code></td>
+      <td>Set of attributes that define the marker where the AR force directed graph is mounted, according to the <a href="https://ar-js-org.github.io/AR.js-Docs/marker-based/">a-marker specification</a>. This prop only has an effect on component mount.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="node-styling">Node styling</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>nodeRelSize</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">4</td>
+      <td>Ratio of node circle area (square px) [2D] or sphere volume (cubic px) [3D] per value unit.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeVal</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">val</code></td>
+      <td>Node object accessor function, attribute or a numeric constant for the node numeric value (affects node size).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeLabel</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>Node object accessor function or attribute for name (shown in label). Supports plain text or HTML content (except in VR).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>nodeDesc</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">desc</code></td>
+      <td>For VR only. Node object accessor function or attribute for description (shown under label).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>nodeVisibility</b></td>
+      <td style="text-align: center"><i>bool</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Node object accessor function, attribute or a boolean constant for whether to display the node.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeColor</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>Node object accessor function or attribute for node color.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeAutoColorBy</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"> </td>
+      <td>Node object accessor function or attribute to automatically group colors by. Only affects nodes without a color attribute.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeOpacity</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0.75</td>
+      <td>Nodes sphere opacity, between [0,1].</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeResolution</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">8</td>
+      <td>Geometric resolution of each node’s sphere, expressed in how many slice segments to divide the circumference. Higher values yield smoother spheres. Only applicable to 3D modes.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeCanvasObject</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>default 2D node object is a circle, sized according to <code class="language-plaintext highlighter-rouge">val</code> and styled according to <code class="language-plaintext highlighter-rouge">color</code>.</em></td>
+      <td>Callback function for painting a custom 2D canvas object to represent graph nodes. Should use the provided canvas context attribute to perform drawing operations for each node. The callback function will be called for each node at every frame, and has the signature: <code class="language-plaintext highlighter-rouge">nodeCanvasObject(&lt;node&gt;, &lt;canvas context&gt;, &lt;current global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>nodeCanvasObjectMode</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">() =&gt; 'replace'</code></td>
+      <td>Node object accessor function or attribute for the custom drawing mode. Use in combination with <code class="language-plaintext highlighter-rouge">nodeCanvasObject</code> to specify how to customize nodes painting. Possible values are: &lt;ul&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">replace</code>: the node is rendered using just <code class="language-plaintext highlighter-rouge">nodeCanvasObject</code>.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">before</code>: the node is rendered by invoking <code class="language-plaintext highlighter-rouge">nodeCanvasObject</code> and then proceeding with the default node painting.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">after</code>: <code class="language-plaintext highlighter-rouge">nodeCanvasObject</code> is applied after the default node painting takes place.&lt;/li&gt;&lt;/ul&gt;Any other value will be ignored and the default drawing will be applied.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>nodeThreeObject</b></td>
+      <td style="text-align: center"><i>Object3d</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><em>default 3D node object is a sphere, sized according to <code class="language-plaintext highlighter-rouge">val</code> and styled according to <code class="language-plaintext highlighter-rouge">color</code>.</em></td>
+      <td>Node object accessor function or attribute for generating a custom 3d object to render as graph nodes. Should return an instance of <a href="https://threejs.org/docs/index.html#api/core/Object3D">ThreeJS Object3d</a>. If a <i>falsy</i> value is returned, the default 3d object type will be used instead for that node.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>nodeThreeObjectExtend</b></td>
+      <td style="text-align: center"><i>bool</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Node object accessor function, attribute or a boolean value for whether to replace the default node when using a custom <code class="language-plaintext highlighter-rouge">nodeThreeObject</code> (<code class="language-plaintext highlighter-rouge">false</code>) or to extend it (<code class="language-plaintext highlighter-rouge">true</code>).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="link-styling">Link styling</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>linkLabel</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>Link object accessor function or attribute for name (shown in label). Supports plain text or HTML content (except in VR).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkDesc</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">desc</code></td>
+      <td>For VR only. Link object accessor function or attribute for description (shown under label).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkVisibility</b></td>
+      <td style="text-align: center"><i>bool</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Link object accessor function, attribute or a boolean constant for whether to display the link line.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkColor</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>Link object accessor function or attribute for line color.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkAutoColorBy</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"> </td>
+      <td>Link object accessor function or attribute to automatically group colors by. Only affects links without a color attribute.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkOpacity</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0.2</td>
+      <td>Line opacity of links, between [0,1].</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkLineDash</b></td>
+      <td style="text-align: center"><i>number[]</i>, <i>string</i> or <i>func</i>]</td>
+      <td style="text-align: center"> </td>
+      <td>Link object accessor function, attribute or number array (e.g. <code class="language-plaintext highlighter-rouge">[5, 15]</code>) to determine if a line dash should be applied to this rendered link. Refer to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash">HTML canvas setLineDash API</a> for example values. Either a falsy value or an empty array will disable dashing.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkWidth</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">1</td>
+      <td>Link object accessor function, attribute or a numeric constant for the link line width.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkResolution</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">6</td>
+      <td>Geometric resolution of each link 3D line, expressed in how many radial segments to divide the cylinder. Higher values yield smoother cylinders. Applicable only to links with positive width.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkCurvature</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0</td>
+      <td>Link object accessor function, attribute or a numeric constant for the curvature radius of the link line. A value of <code class="language-plaintext highlighter-rouge">0</code> renders a straight line. <code class="language-plaintext highlighter-rouge">1</code> indicates a radius equal to half of the line length, causing the curve to approximate a semi-circle. For self-referencing links (<code class="language-plaintext highlighter-rouge">source</code> equal to <code class="language-plaintext highlighter-rouge">target</code>) the curve is represented as a loop around the node, with length proportional to the curvature value.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkCurveRotation</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0</td>
+      <td>Link object accessor function, attribute or a numeric constant for the rotation along the line axis to apply to the curve. Has no effect on straight lines. At <code class="language-plaintext highlighter-rouge">0</code> rotation, the curve is oriented in the direction of the intersection with the <code class="language-plaintext highlighter-rouge">XY</code> plane. The rotation angle (in radians) will rotate the curved line clockwise around the “start-to-end” axis from this reference orientation.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkMaterial</b></td>
+      <td style="text-align: center"><i>Material</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><em>default link material is <a href="https://threejs.org/docs/#api/materials/MeshLambertMaterial">MeshLambertMaterial</a> styled according to <code class="language-plaintext highlighter-rouge">color</code> and <code class="language-plaintext highlighter-rouge">opacity</code>.</em></td>
+      <td>Link object accessor function or attribute for specifying a custom material to style the graph links with. Should return an instance of <a href="https://threejs.org/docs/#api/materials/Material">ThreeJS Material</a>. If a <i>falsy</i> value is returned, the default material will be used instead for that link.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkCanvasObject</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>default 2D link object is a line, styled according to <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">color</code>.</em></td>
+      <td>Callback function for painting a custom canvas object to represent graph links. Should use the provided canvas context attribute to perform drawing operations for each link. The callback function will be called for each link at every frame, and has the signature: <code class="language-plaintext highlighter-rouge">.linkCanvasObject(&lt;link&gt;, &lt;canvas context&gt;, &lt;current global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkCanvasObjectMode</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">() =&gt; 'replace'</code></td>
+      <td>Link object accessor function or attribute for the custom drawing mode. Use in combination with <code class="language-plaintext highlighter-rouge">linkCanvasObject</code> to specify how to customize links painting. Possible values are: &lt;ul&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">replace</code>: the link is rendered using just <code class="language-plaintext highlighter-rouge">linkCanvasObject</code>.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">before</code>: the link is rendered by invoking <code class="language-plaintext highlighter-rouge">linkCanvasObject</code> and then proceeding with the default link painting.&lt;/li&gt;&lt;li&gt;<code class="language-plaintext highlighter-rouge">after</code>: <code class="language-plaintext highlighter-rouge">linkCanvasObject</code> is applied after the default link painting takes place.&lt;/li&gt;&lt;/ul&gt;Any other value will be ignored and the default drawing will be applied.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkThreeObject</b></td>
+      <td style="text-align: center"><i>Object3d</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><em>default 3D link object is a line or cylinder, sized according to <code class="language-plaintext highlighter-rouge">width</code> and styled according to <code class="language-plaintext highlighter-rouge">material</code>.</em></td>
+      <td>Link object accessor function or attribute for generating a custom 3d object to render as graph links. Should return an instance of <a href="https://threejs.org/docs/index.html#api/core/Object3D">ThreeJS Object3d</a>. If a <i>falsy</i> value is returned, the default 3d object type will be used instead for that link.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkThreeObjectExtend</b></td>
+      <td style="text-align: center"><i>bool</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Link object accessor function, attribute or a boolean value for whether to replace the default link when using a custom <code class="language-plaintext highlighter-rouge">linkThreeObject</code> (<code class="language-plaintext highlighter-rouge">false</code>) or to extend it (<code class="language-plaintext highlighter-rouge">true</code>).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkPositionUpdate</b></td>
+      <td style="text-align: center"><i>func(linkObject, { start, end }, link)</i></td>
+      <td style="text-align: center"> </td>
+      <td>Custom function to call for updating the position of links at every render iteration. It receives the respective link <code class="language-plaintext highlighter-rouge">ThreeJS Object3d</code>, the <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> coordinates of the link (<code class="language-plaintext highlighter-rouge">{x,y,z}</code> each), and the link’s <code class="language-plaintext highlighter-rouge">data</code>. If the function returns a truthy value, the regular position update function will not run for that link.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalArrowLength</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0</td>
+      <td>Link object accessor function, attribute or a numeric constant for the length of the arrow head indicating the link directionality. The arrow is displayed directly over the link line, and points in the direction of <code class="language-plaintext highlighter-rouge">source</code> &gt; <code class="language-plaintext highlighter-rouge">target</code>. A value of <code class="language-plaintext highlighter-rouge">0</code> hides the arrow.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalArrowColor</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>Link object accessor function or attribute for the color of the arrow head.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalArrowRelPos</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0.5</td>
+      <td>Link object accessor function, attribute or a numeric constant for the longitudinal position of the arrow head along the link line, expressed as a ratio between <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">1</code>, where <code class="language-plaintext highlighter-rouge">0</code> indicates immediately next to the <code class="language-plaintext highlighter-rouge">source</code> node, <code class="language-plaintext highlighter-rouge">1</code> next to the <code class="language-plaintext highlighter-rouge">target</code> node, and <code class="language-plaintext highlighter-rouge">0.5</code> right in the middle.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalArrowResolution</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">8</td>
+      <td>Geometric resolution of the arrow head, expressed in how many slice segments to divide the cone base circumference. Higher values yield smoother arrows.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalParticles</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0</td>
+      <td>Link object accessor function, attribute or a numeric constant for the number of particles (small spheres) to display over the link line. The particles are distributed equi-spaced along the line, travel in the direction <code class="language-plaintext highlighter-rouge">source</code> &gt; <code class="language-plaintext highlighter-rouge">target</code>, and can be used to indicate link directionality.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalParticleSpeed</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0.01</td>
+      <td>Link object accessor function, attribute or a numeric constant for the directional particles speed, expressed as the ratio of the link length to travel per frame. Values above <code class="language-plaintext highlighter-rouge">0.5</code> are discouraged.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalParticleWidth</b></td>
+      <td style="text-align: center"><i>number</i>, <i>string</i> or <i>func</i></td>
+      <td style="text-align: center">0.5</td>
+      <td>Link object accessor function, attribute or a numeric constant for the directional particles width. Values are rounded to the nearest decimal for indexing purposes.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalParticleColor</b></td>
+      <td style="text-align: center"><i>string</i> or <i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>Link object accessor function or attribute for the directional particles color.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>linkDirectionalParticleResolution</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">4</td>
+      <td>Geometric resolution of each 3D directional particle, expressed in how many slice segments to divide the circumference. Higher values yield smoother particles.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Arguments</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>emitParticle</b></td>
+      <td style="text-align: center">(<i>link</i>)</td>
+      <td>An alternative mechanism for generating particles, this method emits a non-cyclical single particle within a specific link. The emitted particle shares the styling (speed, width, color) of the regular particle props. A valid <code class="language-plaintext highlighter-rouge">link</code> object that is included in <code class="language-plaintext highlighter-rouge">graphData</code> should be passed as a single parameter.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="render-control">Render control</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>rendererConfig</b></td>
+      <td style="text-align: center"><i>object</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{ antialias: true, alpha: true }</code></td>
+      <td>Configuration parameters to pass to the <a href="https://threejs.org/docs/#api/en/renderers/WebGLRenderer">ThreeJS WebGLRenderer</a> constructor. This prop only has an effect on component mount.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>extraRenderers</b></td>
+      <td style="text-align: center"><i>array</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>If you wish to include custom objects that require a dedicated renderer besides <code class="language-plaintext highlighter-rouge">WebGL</code>, such as <a href="https://threejs.org/docs/#examples/en/renderers/CSS3DRenderer">CSS3DRenderer</a>, include in this array those extra renderer instances.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>autoPauseRedraw</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Enable performance optimization to automatically pause redrawing the 2D canvas at every frame whenever the simulation engine is halted. If you have custom dynamic objects that rely on a constant redraw of the canvas, it’s recommended to switch this option off.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>minZoom</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0.01</td>
+      <td>Lowest zoom out level permitted on the 2D canvas.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>maxZoom</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">1000</td>
+      <td>Highest zoom in level permitted on the 2D canvas.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onRenderFramePre</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function to invoke at every frame, immediately before any node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: <code class="language-plaintext highlighter-rouge">.onRenderFramePre(&lt;canvas context&gt;, &lt;global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onRenderFramePost</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function to invoke at every frame, immediately after the last node/link is rendered to the canvas. This can be used to draw additional external items on the canvas. The canvas context and the current global scale are included as parameters: <code class="language-plaintext highlighter-rouge">.onRenderFramePost(&lt;canvas context&gt;, &lt;global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Arguments</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>pauseAnimation</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Pauses the rendering cycle of the component, effectively freezing the current view and cancelling all user interaction. This method can be used to save performance in circumstances when a static image is sufficient.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>resumeAnimation</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Resumes the rendering cycle of the component, and re-enables the user interaction. This method can be used together with <code class="language-plaintext highlighter-rouge">pauseAnimation</code> for performance optimization purposes.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>centerAt</b></td>
+      <td style="text-align: center">([<i>x</i>], [<i>y</i>], [<i>ms</i>])</td>
+      <td>Set the coordinates of the center of the viewport. This method can be used to perform panning on the 2D canvas programmatically. Each of the <code class="language-plaintext highlighter-rouge">x, y</code> coordinates is optional, allowing for motion in just one dimension. An optional 3rd argument defines the duration of the transition (in ms) to animate the canvas motion.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>zoom</b></td>
+      <td style="text-align: center">([<i>number</i>], [<i>ms</i>])</td>
+      <td>Set the 2D canvas zoom amount. The zoom is defined in terms of the scale transform of each px. A value of <code class="language-plaintext highlighter-rouge">1</code> indicates unity, larger values zoom in and smaller values zoom out. An optional 2nd argument defines the duration of the transition (in ms) to animate the canvas motion. By default the zoom is set to a value inversely proportional to the amount of nodes in the system.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>zoomToFit</b></td>
+      <td style="text-align: center">([<i>ms</i>], [<i>px</i>], [<i>nodeFilterFn</i>])</td>
+      <td>Automatically zooms/pans the canvas so that all of the nodes fit inside it. If no nodes are found no action is taken. It accepts two optional arguments: the first defines the duration of the transition (in ms) to animate the canvas motion (default: 0ms). The second argument is the amount of padding (in px) between the edge of the canvas and the outermost node (default: 10px). The third argument specifies a custom node filter: <code class="language-plaintext highlighter-rouge">node =&gt; &lt;boolean&gt;</code>, which should return a truthy value if the node is to be included. This can be useful for focusing on a portion of the graph.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>cameraPosition</b></td>
+      <td style="text-align: center">([<i>{x,y,z}</i>],[<i>lookAt</i>], [<i>ms</i>])</td>
+      <td>Re-position the camera, in terms of <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>, <code class="language-plaintext highlighter-rouge">z</code> coordinates. Each of the coordinates is optional, allowing for motion in just some dimensions. The optional second argument can be used to define the direction that the camera should aim at, in terms of an <code class="language-plaintext highlighter-rouge">{x,y,z}</code> point in the 3D space. The 3rd optional argument defines the duration of the transition (in ms) to animate the camera motion. A value of 0 (default) moves the camera immediately to the final position. By default the camera will face the center of the graph at a <code class="language-plaintext highlighter-rouge">z</code> distance proportional to the amount of nodes in the system.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>scene</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Access the internal ThreeJS <a href="https://threejs.org/docs/#api/scenes/Scene">Scene</a>.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>camera</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Access the internal ThreeJS <a href="https://threejs.org/docs/#api/cameras/PerspectiveCamera">Camera</a>.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>renderer</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Access the internal ThreeJS <a href="https://threejs.org/docs/#api/renderers/WebGLRenderer">WebGL renderer</a>.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>postProcessingComposer</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Access the <a href="https://threejs.org/docs/#examples/en/postprocessing/EffectComposer">post-processing composer</a>. Use this to add post-processing <a href="https://github.com/mrdoob/three.js/tree/dev/examples/jsm/postprocessing">rendering effects</a> to the scene. By default the composer has a single pass (<a href="https://github.com/mrdoob/three.js/blob/dev/examples/jsm/postprocessing/RenderPass.js">RenderPass</a>) that directly renders the scene without any effects.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>controls</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Access the internal ThreeJS controls object.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>refresh</b></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Redraws all the nodes/links.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="force-engine-configuration">Force engine configuration</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>numDimensions</b></td>
+      <td style="text-align: center"><i>1</i>, <i>2</i> or <i>3</i></td>
+      <td style="text-align: center">3</td>
+      <td>Not applicable to 2D mode. Number of dimensions to run the force simulation on.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>forceEngine</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">d3</code></td>
+      <td>Which force-simulation engine to use (<a href="https://github.com/vasturiano/d3-force-3d"><em>d3</em></a> or <a href="https://github.com/anvaka/ngraph.forcelayout"><em>ngraph</em></a>).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>dagMode</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Apply layout constraints based on the graph directionality. Only works correctly for <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">DAG</a> graph structures (without cycles). Choice between <code class="language-plaintext highlighter-rouge">td</code> (top-down), <code class="language-plaintext highlighter-rouge">bu</code> (bottom-up), <code class="language-plaintext highlighter-rouge">lr</code> (left-to-right), <code class="language-plaintext highlighter-rouge">rl</code> (right-to-left), <code class="language-plaintext highlighter-rouge">zout</code> (near-to-far), <code class="language-plaintext highlighter-rouge">zin</code> (far-to-near), <code class="language-plaintext highlighter-rouge">radialout</code> (outwards-radially) or <code class="language-plaintext highlighter-rouge">radialin</code> (inwards-radially).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>dagLevelDistance</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center"><em>auto-derived from the number of nodes</em></td>
+      <td>If <code class="language-plaintext highlighter-rouge">dagMode</code> is engaged, this specifies the distance between the different graph depths.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>dagNodeFilter</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">node =&gt; true</code></td>
+      <td>Node accessor function to specify nodes to ignore during the DAG layout processing. This accessor method receives a node object and should return a <code class="language-plaintext highlighter-rouge">boolean</code> value indicating whether the node is to be included. Excluded nodes will be left unconstrained and free to move in any direction.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onDagError</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback to invoke if a cycle is encountered while processing the data structure for a DAG layout. The loop segment of the graph is included for information, as an array of node ids. By default an exception will be thrown whenever a loop is encountered. You can override this method to handle this case externally and allow the graph to continue the DAG processing. Strict graph directionality is not guaranteed if a loop is encountered and the result is a best effort to establish a hierarchy.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>d3AlphaMin</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0</td>
+      <td>Sets the <a href="https://github.com/vasturiano/d3-force-3d#simulation_alphaMin">simulation alpha min</a> parameter. Only applicable if using the d3 simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>d3AlphaDecay</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0.0228</td>
+      <td>Sets the <a href="https://github.com/vasturiano/d3-force-3d#simulation_alphaDecay">simulation intensity decay</a> parameter. Only applicable if using the d3 simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>d3VelocityDecay</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0.4</td>
+      <td>Nodes’ <a href="https://github.com/vasturiano/d3-force-3d#simulation_velocityDecay">velocity decay</a> that simulates the medium resistance. Only applicable if using the d3 simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>ngraphPhysics</b></td>
+      <td style="text-align: center"><i>object</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Specify custom physics configuration for ngraph, according to its <a href="https://github.com/anvaka/ngraph.forcelayout#configuring-physics">configuration object</a> syntax. Only applicable if using the ngraph simulation engine.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>warmupTicks</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">0</td>
+      <td>Number of layout engine cycles to dry-run at ignition before starting to render.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>cooldownTicks</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">Infinity</td>
+      <td>How many build-in frames to render before stopping and freezing the layout engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>cooldownTime</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">15000</td>
+      <td>How long (ms) to render for before stopping and freezing the layout engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onEngineTick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function invoked at every tick of the simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onEngineStop</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function invoked when the simulation engine stops and the layout is frozen.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Arguments</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>d3Force</b></td>
+      <td style="text-align: center">(<i>string</i>, [<i>func</i>])</td>
+      <td>Access to the internal forces that control the d3 simulation engine. Follows the same interface as <code class="language-plaintext highlighter-rouge">d3-force-3d</code>’s <a href="https://github.com/vasturiano/d3-force-3d#simulation_force">simulation.force</a>. Three forces are included by default: <code class="language-plaintext highlighter-rouge">'link'</code> (based on <a href="https://github.com/vasturiano/d3-force-3d#forceLink">forceLink</a>), <code class="language-plaintext highlighter-rouge">'charge'</code> (based on <a href="https://github.com/vasturiano/d3-force-3d#forceManyBody">forceManyBody</a>) and <code class="language-plaintext highlighter-rouge">'center'</code> (based on <a href="https://github.com/vasturiano/d3-force-3d#forceCenter">forceCenter</a>). Each of these forces can be reconfigured, or new forces can be added to the system. Only applicable if using the d3 simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>d3ReheatSimulation</b></td>
+      <td style="text-align: center">()</td>
+      <td>Reheats the force simulation engine, by setting the <code class="language-plaintext highlighter-rouge">alpha</code> value to <code class="language-plaintext highlighter-rouge">1</code>. Only applicable if using the d3 simulation engine.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="interaction">Interaction</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Default</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>onNodeClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for node (left-button) clicks. The node object and the event object are included as arguments <code class="language-plaintext highlighter-rouge">onNodeClick(node, event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onNodeRightClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for node right-clicks. The node object and the event object are included as arguments <code class="language-plaintext highlighter-rouge">onNodeRightClick(node, event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onNodeHover</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for node mouse over events. The node object (or <code class="language-plaintext highlighter-rouge">null</code> if there’s no node under the pointer line of sight) is included as the first argument, and the previous node object (or null) as second argument: <code class="language-plaintext highlighter-rouge">onNodeHover(node, prevNode)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onNodeDrag</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for node drag interactions. This function is invoked repeatedly while dragging a node, every time its position is updated. The node object is included as the first argument, and the change in coordinates since the last iteration of this function are included as the second argument in format {x,y,z}: <code class="language-plaintext highlighter-rouge">onNodeDrag(node, translate)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onNodeDragEnd</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for the end of node drag interactions. This function is invoked when the node is released. The node object is included as the first argument, and the change in coordinates from the node’s initial postion are included as the second argument in format {x,y,z}: <code class="language-plaintext highlighter-rouge">onNodeDragEnd(node, translate)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onLinkClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for link (left-button) clicks. The link object and the event object are included as arguments <code class="language-plaintext highlighter-rouge">onLinkClick(link, event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onLinkRightClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for link right-clicks. The link object and the event object are included as arguments <code class="language-plaintext highlighter-rouge">onLinkRightClick(link, event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onLinkHover</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for link mouse over events. The link object (or <code class="language-plaintext highlighter-rouge">null</code> if there’s no link under the pointer line of sight) is included as the first argument, and the previous link object (or null) as second argument: <code class="language-plaintext highlighter-rouge">onLinkHover(link, prevLink)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>onBackgroundClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for click events on the empty space between the nodes and links. The event object is included as single argument <code class="language-plaintext highlighter-rouge">onBackgroundClick(event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onBackgroundRightClick</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for right-click events on the empty space between the nodes and links. The event object is included as single argument <code class="language-plaintext highlighter-rouge">onBackgroundRightClick(event)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkHoverPrecision</b></td>
+      <td style="text-align: center"><i>number</i></td>
+      <td style="text-align: center">4</td>
+      <td>Whether to display the link label when gazing the link closely (low value) or from far away (high value).</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onZoom</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for zoom/pan events. The current zoom transform is included as single argument <code class="language-plaintext highlighter-rouge">onZoom({ k, x, y })</code>. Note that <code class="language-plaintext highlighter-rouge">onZoom</code> is triggered by user interaction as well as programmatic zooming/panning with <code class="language-plaintext highlighter-rouge">zoom()</code> and <code class="language-plaintext highlighter-rouge">centerAt()</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>onZoomEnd</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>-</em></td>
+      <td>Callback function for on ‘end’ of zoom/pan events. The current zoom transform is included as single argument <code class="language-plaintext highlighter-rouge">onZoomEnd({ k, x, y })</code>. Note that <code class="language-plaintext highlighter-rouge">onZoomEnd</code> is triggered by user interaction as well as programmatic zooming/panning with <code class="language-plaintext highlighter-rouge">zoom()</code> and <code class="language-plaintext highlighter-rouge">centerAt()</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>controlType</b></td>
+      <td style="text-align: center"><i>string</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">trackball</code></td>
+      <td>Which type of control to use to control the camera on 3D mode. Choice between <a href="https://threejs.org/examples/misc_controls_trackball.html">trackball</a>, <a href="https://threejs.org/examples/#misc_controls_orbit">orbit</a> or <a href="https://threejs.org/examples/misc_controls_fly.html">fly</a>.</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>enableZoomInteraction</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to enable zooming user interactions on a 2D canvas.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>enablePanInteraction</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to enable panning user interactions on a 2D canvas.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>enableNavigationControls</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to enable the trackball navigation controls used to move the camera using mouse interactions (rotate/zoom/pan).</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>enablePointerInteraction</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to enable the mouse tracking events. This activates an internal tracker of the canvas mouse position and enables the functionality of object hover/click and tooltip labels, at the cost of performance. If you’re looking for maximum gain in your graph performance it’s recommended to switch off this property.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>enableNodeDrag</b></td>
+      <td style="text-align: center"><i>bool</i></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>Whether to enable the user interaction to drag nodes by click-dragging. If enabled, every time a node is dragged the simulation is re-heated so the other nodes react to the changes. Only applicable if enablePointerInteraction is <code class="language-plaintext highlighter-rouge">true</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>nodePointerAreaPaint</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>default interaction area is a circle centered on the node and sized according to <code class="language-plaintext highlighter-rouge">val</code>.</em></td>
+      <td>Callback function for painting a canvas area used to detect node pointer interactions. The provided paint color uniquely identifies the node and should be used to perform drawing operations on the provided canvas context. This painted area will not be visible, but instead be used to detect pointer interactions with the node. The callback function has the signature: <code class="language-plaintext highlighter-rouge">nodePointerAreaPaint(&lt;node&gt;, &lt;color&gt;, &lt;canvas context&gt;, &lt;current global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>linkPointerAreaPaint</b></td>
+      <td style="text-align: center"><i>func</i></td>
+      <td style="text-align: center"><em>default interaction area is a straight line between the source and target nodes.</em></td>
+      <td>Callback function for painting a canvas area used to detect link pointer interactions. The provided paint color uniquely identifies the link and should be used to perform drawing operations on the provided canvas context. This painted area will not be visible, but instead be used to detect pointer interactions with the link. The callback function has the signature: <code class="language-plaintext highlighter-rouge">linkPointerAreaPaint(&lt;link&gt;, &lt;color&gt;, &lt;canvas context&gt;, &lt;current global scale&gt;)</code>.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="utility">Utility</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Arguments</th>
+      <th>Description</th>
+      <th style="text-align: center">2D</th>
+      <th style="text-align: center">3D</th>
+      <th style="text-align: center">VR</th>
+      <th style="text-align: center">AR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>getGraphBbox</b></td>
+      <td style="text-align: center">([<i>nodeFilterFn</i>])</td>
+      <td>Returns the current bounding box of the nodes in the graph, formatted as <code class="language-plaintext highlighter-rouge">{ x: [&lt;num&gt;, &lt;num&gt;], y: [&lt;num&gt;, &lt;num&gt;], z: [&lt;num&gt;, &lt;num&gt;] }</code>. If no nodes are found, returns <code class="language-plaintext highlighter-rouge">null</code>. Accepts an optional argument to define a custom node filter: <code class="language-plaintext highlighter-rouge">node =&gt; &lt;boolean&gt;</code>, which should return a truthy value if the node is to be included. This can be useful to calculate the bounding box of a portion of the graph.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+    </tr>
+    <tr>
+      <td><b>screen2GraphCoords</b></td>
+      <td style="text-align: center">(<i>x</i>, <i>y</i>[, <i>distance</i>])</td>
+      <td>Utility method to translate viewport coordinates to the graph domain. Given a pair of <code class="language-plaintext highlighter-rouge">x</code>,<code class="language-plaintext highlighter-rouge">y</code> screen coordinates, and optionally distance from camera for 3D mode, returns the current equivalent <code class="language-plaintext highlighter-rouge">{x, y (, z)}</code> in the domain of graph node coordinates.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><b>graph2ScreenCoords</b></td>
+      <td style="text-align: center">(<i>x</i>, <i>y</i>[, <i>z</i>])</td>
+      <td>Utility method to translate node coordinates to the viewport domain. Given a set of <code class="language-plaintext highlighter-rouge">x</code>,<code class="language-plaintext highlighter-rouge">y</code>(,<code class="language-plaintext highlighter-rouge">z</code>) graph coordinates, returns the current equivalent <code class="language-plaintext highlighter-rouge">{x, y}</code> in viewport coordinates.</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center">:heavy_check_mark:</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="input-json-syntax">Input JSON syntax</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"val"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> 
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> 
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"val"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> 
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id2"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="giving-back">Giving Back</h2>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=L398E7PKP47E8&amp;currency_code=USD&amp;source=url"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="paypal" /></a> If this project has helped you and you’d like to contribute back, you can always <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=L398E7PKP47E8&amp;currency_code=USD&amp;source=url">buy me a ☕</a>!</p>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/kugeceo/react-force-graph.luhui.net">react-force-graph</a> is maintained by <a href="https://github.com/vasturiano">vasturiano</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
